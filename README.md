@@ -12,6 +12,7 @@ The elbow method was used to determine the best k-value or number of clusters. T
 
 2. Cluster using K-Means - 
 KMeans was then modelled and fitted using n_clusters = 4 based on the elbow method.  Model.predict was applied to the scaled DataFrame. The scaled DataFrame was copied and a column added to capture the predicted clusters. The predicted clusters were then plotted as colors in a scatter plot graph with the x-axis showing price_change_percentage_24h and y-axis showing price_change_percentage_7d.
+![alt text](scaledscatter.png)
 
 ## Optimize with Principal Component Analysis (PCA)
 1. Create PCA model and DataFrame - 
@@ -19,9 +20,11 @@ PCA was used to reduce the 7 features down to 3 principal components. The PCA ex
 
 2. Determine best k-values for clustering - 
 Similar to the analysis with the scaled data, the elbow method was used with the PCA DataFrame to determine the best k-value. It also indicated a k=4 as the best number of clusters for the PCA data.
+![alt text](pcaelbow.png)
 
 3. Cluster using K-Means - 
 KMeans was then modelled and fitted using n_clusters = 4 based on the elbow method.  Model.predict was applied to the PCA DataFrame. The original PCA DataFrame was copied and a column added to capture the predicted clusters. The predicted clusters were then plotted as colors in a scatter plot graph with the x-axis showing PCA1 and y-axis showing PCA2.
+![alt text](pcascatter.png)
 
 4. Understand features with strongest influence - 
 pca.components_ was utilized to understand the weight of each feature to the PCA principal components. For PCA1 the strongest positive influence is price_change_percentage_200d followed by price_change_percentage_1y. The strongest negative influence for PCA1 is price_change_percentage_24h. For PCA2, the strongest positive influence is price_change_percentage_30d followed closely by price_change_percentage_14d. There was only one feature with negative influence for PCA2 - price_change_percentage_1y. For PCA3, the strongest positive influence wasw price_change_percentage_7d and price_change_percentage_60d had the strongest negative influence. 
